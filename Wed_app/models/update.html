@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Camera ML App</title>
+    <style>
+        body{
+    background-color: #FAF9F6;
+    font-family: Arial, Helvetica, sans-serif;
+}
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left:380px;
+    margin-right:auto;
+  }
+button:hover{
+    cursor: pointer;
+    color:black;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px ;
+    background-color: white;
+    border-radius: 15px;
+    border-style: solid;
+    border-color:  #1A1110;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    box-shadow: 10px 10px 10px 10px  lightskyblue;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+
+
+
+
+
+  * {box-sizing: border-box;}
+
+ 
+  .header {
+    overflow: hidden;
+    background-color: #36454F;
+    padding: 20px 60px;
+  }
+  
+  .header a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  .header a.logo {
+    font-family:"Lucida Handwriting", cursive;
+    font-size: 30px;
+    color:#4CAF50;
+  }
+  
+  .header a:hover {
+    background-color: #4CAF50;
+    color: white;
+    cursor:pointer;
+  }
+  
+  .header a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    
+    .header-right {
+      float: none;
+    }
+  }
+
+
+
+  
+  footer{
+    position: absolute;
+    bottom: 0.4vm;
+    left: 0;
+    right: 0;
+    background: #36454F;
+    height: 6vw;
+    width: 98vw;
+    padding-top: 50px;
+    color: #fff;
+    text-align:center;
+    margin-top:200px;
+}
+
+footer.text-center{
+    padding-bottom: 50px;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+      <img src="manlogo2.png" alt="IMAGE" width="100px" height="100px">
+        <div class="header-right">
+          <a  onclick="window.location.href='/'">Home</a>
+          <a onclick="window.location.href='/admin'">Admin</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+      </div>
+     
+    
+      <div class="container">
+        <h1>Update The Users Info</h1>
+        <form  name="myForm" action="/update2/{{ data[0][0] }}"  method="post">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" value="{{ data[0][0] }}">
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="{{ data[0][1] }}">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ data[0][2] }}">
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Update">
+          </div>
+        </form>
+    </div>
+    </body>
+    <footer>
+        <p class="text-center">Copyright &copy; navantika20@tbc.edu.np</p>
+    </footer>
+    </html>

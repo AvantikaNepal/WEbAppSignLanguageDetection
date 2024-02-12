@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Camera ML App</title>
+    <link rel="stylesheet" type="text/css" href="style/admin.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="style/manlogo2.png" alt="IMAGE" width="100px" height="100px">
+          <div class="header-right">
+            <a  onclick="window.location.href='/'">Home</a>
+            <a   onclick="window.location.href='/admin'">Admin</a>
+            <a  class="active" onclick="window.location.href='/pie'">Pie</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+          </div>
+        </div>
+        <div class ="pie">
+            <h1>User Age</h1>
+            <canvas id="pieChart"></canvas>
+          </div>
+        <script>
+            // Data for the pie chart
+            var ageData = {
+    labels: [
+      {% for row in data %}
+        '{{ row[0] }}',
+      {% endfor %}
+    ],
+    datasets: [{
+      data: [
+        {% for row in data %}
+          {{ row[1] }},
+        {% endfor %}
+      ],
+      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#90EE90'],
+    }]
+  };
+          
+            // Create the pie chart
+            var ctx = document.getElementById('pieChart').getContext('2d');
+            var pieChart = new Chart(ctx, {
+              type: 'pie',
+              data: ageData,
+            });
+          </script>
+             
+      </body>
+      <footer>
+          <p class="text-center">Copyright &copy; navantika20@tbc.edu.np</p>
+      </footer>
+      </html>

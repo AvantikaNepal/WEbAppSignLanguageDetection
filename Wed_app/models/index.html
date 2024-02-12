@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Camera ML App</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+   
+</head>
+<body>
+    <div class="header">
+        <img src="style/manlogo2.png" alt="IMAGE" width="100px" height="100px">
+        <div class="header-right">
+          <a class="active" href="#home">Home</a>
+          {% if 'username' not in session %}
+          <a onclick="window.location.href='/table'">SignUp</a>
+          <a href="{{ url_for('login') }}">Login</a>
+          {% elif 'username' in session and session.username == 'nisuka84@gmail.com' %}
+          <a href="{{ url_for('admin') }}">Admin</a>
+          <a href="{{ url_for('pie') }}">Pie</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+          {% elif 'username'  in session and session.username != 'nisuka84@gmail.com' %}
+          <a href="{{ url_for('dashboard') }}">Dashboard</a>
+          <a href="{{ url_for('predict') }}">Predict</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+          {% endif %}
+        </div>
+      </div>
+    <div class="container">
+    <img src="style/camera.png" alt="IMAGE">
+    </div>
+    
+    <video id="video" width="640" height="480"></video>
+    <div class="predictor"></div>
+    <button onclick="window.location.href='/button'">Detect Landmarks</button>
+  
+    <button onclick="window.location.href='/predict'">Make prediction</button>
+</div>
+
+    
+
+<!-- ############################################################################### -->
+<div class="flexing">
+    <h1>Predictions</h1>
+    <h1>Pr</h1>
+    <!-- <div class="text"><h1>Hello</h1></div>
+    <div class="text2"><h1>ILoveYou</h1></div> -->
+
+<div class="gallery">
+    <h2>Hello</h2>
+    <img src="style/hello1.png">
+    <img src="style/hello2.png">
+    <img src="style/hello4.png">
+    <img src="style/hello3.png">
+</div>
+
+
+
+<div class="gallery2">
+    <h2>ILoveYou</h2>
+    <img src="style/iloveyou.png" alt="a forest after an apocalypse">
+    <img src="style/iloveyou2.png" alt="a waterfall and many rocks">
+    <img src="style/iloveyou4.png" alt="a house on a mountain">
+    <img src="style/iloveyou3.png" alt="sime pink flowers">
+</div>
+
+<div class="gallery2">
+    <h2>Thanks</h2>
+    <img src="style/thanks1.png" alt="a forest after an apocalypse">
+    <img src="style/thanks2.png" alt="a waterfall and many rocks">
+    <img src="style/thanks4.png" alt="a house on a mountain">
+    <img src="style/thanks3.png" alt="sime pink flowers">
+</div>
+</div>
+<!-- ################################################################################# -->
+<div class="flexing">
+    <h1>Predictions</h1>
+    <h1>Pr</h1>
+<div class="gallery">
+    <h2>Bye</h2>
+    <img src="style/bye1.png" alt="a forest after an apocalypse">
+    <img src="style/bye2.png" alt="a waterfall and many rocks">
+    <img src="style/bye4.png" alt="a house on a mountain">
+    <img src="style/bye3.png" alt="sime pink flowers">
+</div>
+
+
+<div class="gallery2">
+    <h2>Help</h2>
+    <img src="style/Help1.png" alt="a forest after an apocalypse">
+    <img src="style/Help2.png" alt="a waterfall and many rocks">
+    <img src="style/Help4.png" alt="a house on a mountain">
+    <img src="style/Help3.png" alt="sime pink flowers">
+</div>
+
+<div class="gallery2">
+    <h2>IAmSleepy</h2>
+    <img src="style/sleep1.png" alt="a forest after an apocalypse">
+    <img src="style/sleep2.png" alt="a waterfall and many rocks">
+    <img src="style/sleep4.png" alt="a house on a mountain">
+    <img src="style/sleep3.png" alt="sime pink flowers">
+</div>
+</div>
+
+
+<script>
+var video = document.getElementById("video");
+
+function start() {
+    video.src = "/stream";
+    video.play();
+}
+
+window.addEventListener("load", start);
+</script>
+</body>
+<footer>
+    <p class="text-center">Copyright &copy; navantika20@tbc.edu.np</p>
+</footer>
+</html>

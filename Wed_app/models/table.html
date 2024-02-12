@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Camera ML App</title>
+    <link rel="stylesheet" type="text/css" href="style/table.css" />
+    <script>
+      // window.onload = function() {
+      //     var message = "{{ message }}";  // Retrieve the message from Flask
+            
+      //     if (message) {
+      //           // Message exists, do something with it
+      //         alert("Message received: " + message);
+      //     }
+      //   }
+
+      function validateForm() {
+        // Get form input values
+        var password = document.forms["myForm"]["password"].value;
+        var confirm_password = document.forms["myForm"]["confirm_password"].value;
+  
+  
+        if (password != confirm_password) {
+          alert("Opps! Password Doesnot Match!");
+          return false;
+        }
+        if (password.length < 8) {
+          alert("Password Must be atleast 8 chracter");
+          return false;
+        } 
+        if (!/[A-Z]/.test(password)) {
+          alert("Password Must contain one upper case character");
+          return false;
+        }
+        if (!/[0-9]/.test(password)) {
+          alert("Password Must contain a number");
+          return false;
+        }
+        if (!/[!@#$%^&]/.test(password)) {
+          alert("Password Must contain a special character");
+          return false;
+        }
+      }
+    
+    </script>
+</head>
+<body>
+    <div class="header">
+      <img src="style/manlogo2.png" alt="IMAGE" width="100px" height="100px">
+        <div class="header-right">
+          <a  onclick="window.location.href='/'">Home</a>
+          <a class="active" href="#contact">SignUp</a>
+          <a onclick="window.location.href='/login'">Login</a>
+        </div>
+      </div>
+     
+    
+      <div class="container">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div id="message-container">
+              <ul class="flash-messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        {% endwith %}
+        <h1>Sign Up</h1>
+        <form  name="myForm" onsubmit="return validateForm()" action="/connect" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group custom-style">
+              <label for="age">Age:</label>
+              <select name="age" id="age"> 
+                <option>Age</option>
+                <option value="18-30">18-30</option> 
+                <option value="31-40">31-40</option> 
+                <option value="41-60">41-60</option> 
+                <option value="60+">60+</option> 
+            </select>
+          </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password">
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Sign Up">
+          </div>
+        </form>
+    </div>
+
+
+      
+    </body>
+    <footer>
+        <p class="text-center">Copyright &copy; navantika20@tbc.edu.np</p>
+    </footer>
+    </html>

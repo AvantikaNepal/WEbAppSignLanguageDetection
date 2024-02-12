@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Camera ML App</title>
+    <link rel="stylesheet" type="text/css" href="style/login.css" />
+   
+</head>
+<body>
+    <div class="header">
+        <img src="style/manlogo2.png" alt="IMAGE" width="100px" height="100px">
+          <div class="header-right">
+            <a  onclick="window.location.href='/'">Home</a>
+            <a onclick="window.location.href='/table'">SignUp</a>
+            <a class="active" href="#">Login</a>
+          </div>
+        </div>
+
+        <div class="login-container">
+            <h1>Login</h1>
+            <h4>Login to make predictions!</h4>
+            <form action="/login2" method="post">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <input type="submit" value="Login">
+            </form>
+            <h5>No acount?<a href='/table'> Create Account</a></h5>
+        </div>
+</body>
+<footer>
+    <p class="text-center">Copyright &copy; navantika20@tbc.edu.np</p>
+</footer>
+</html>

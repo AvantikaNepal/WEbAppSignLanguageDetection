@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="style/dashboard.css" />
+</head>
+<body>
+   
+    <div class="header">
+        <img src="style/manlogo2.png" alt="IMAGE" width="100px" height="100px">
+        <div class="header-right">
+          <a href="{{ url_for('index') }}">Home</a>
+          <a class="active" href="#dashboard">Dashboard</a>
+          <a href="{{ url_for('predict') }}">Predict</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+      </div>
+      <a class="weatherwidget-io" href="https://forecast7.com/en/27d7285d32/kathmandu/" data-label_1="KATHMANDU" data-label_2="WEATHER" data-font="Ubuntu" data-icons="Climacons" data-theme="blue-mountains" data-textcolor="#000000" data-highcolor="#000000" data-lowcolor="#000000" data-mooncolor="#000000" data-cloudcolor="#000000" data-cloudfill="#00008B" data-raincolor="#00008B" >KATHMANDU WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+      <h1>Welcome, {{ username }}!</h1>
+      <h3>You can make the predictions of the actions from here!!. This is what your output will look like!</h3>
+      <img src="style/Output.png.png" width="250px", height="250px">
+   
+      <footer>
+        <p class="text-center">Copyright &copy; navantika20@tbc.edu.np</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Camera ML App</title>
+    <link rel="stylesheet" type="text/css" href="style/admin.css" />
+</head>
+<body>
+    <div class="header">
+        <img src="style/manlogo2.png" alt="IMAGE" width="100px" height="100px">
+          <div class="header-right">
+            <a  onclick="window.location.href='/'">Home</a>
+            <a  class="active" onclick="window.location.href='/admin'">Admin</a>
+            <a href="{{ url_for('pie') }}">Pie</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+          </div>
+        </div>
+      
+        <div class="center">
+            <table>
+              <tr>
+                <th>ID</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Actions</th>
+              </tr>
+                {% for row in data %}
+                <tr>
+                  <td>{{ row[0] }}</td>
+                  <td>{{ row[1] }}</td>
+                  <td>{{ row[2] }}</td>
+                  <td>{{ row[3] }}</td>
+                  <td>
+                    <div class="buttons">
+                    <form action="/delete/{{ row[0] }}" method="POST">
+                    <button class="btn-delete" type="submit">Delete</button>
+                    </form>
+                    <form action="/update/{{ row[0] }}" method="POST">
+                      <button class="btn-update" type="submit">Update</button>
+                      </form>
+                      </div>
+                </td>
+                </tr>
+                {% endfor %}
+            </table>
+          </div>    
+</body>
+<footer>
+    <p class="text-center">Copyright &copy; navantika20@tbc.edu.np</p>
+</footer>
+</html>
